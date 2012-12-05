@@ -45,8 +45,16 @@
 	<script type="text/javascript">
 	// Initialize Google Maps
 		var map;
+		var markers = [];
+		var iterator = 0;
+		
+		var locations = [
+			new google.maps.LatLng(-25.363882,131.044922),
+			new google.maps.LatLng(37.7750, -122.4183),
+			new google.maps.LatLng(35.7750, -120.4183)
+		];
+
 		function initialize() {
-			var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 			var mapOptions = {
 				zoom: 2,
 				center: new google.maps.LatLng(15.7750, 0),
@@ -54,16 +62,27 @@
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
-
-			var marker = new google.maps.Marker({
-				position: myLatlng,
-				animation: google.maps.Animation.DROP,
-				map: map,
-				title:"Hello World!"
-			});
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+
+		function drop() {
+			for (var i = 0; i < locations.length; i++) {
+				setTimeout(function() {
+					addMarker();
+				}, i * 200);
+			};
+		}
+
+		function addMarker() {
+			markers.push(new google.maps.Marker({
+				position: locations[iterator],
+				map: map,
+				draggable: false,
+				animation: google.maps.Animation.DROP
+			}));
+			iterator++;
+		}
 
 	// Initialize FB API 
 		window.fbAsyncInit = function() {
