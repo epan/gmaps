@@ -66,14 +66,16 @@
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 
+	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop() {
 			for (var i = 0; i < locations.length; i++) {
 				setTimeout(function() {
 					addMarker();
-				}, i * 200);
+				}, i * 200); // Sets delay between marker drops
 			};
 		}
 
+	// Creates new Marker object from a markers array of LatLng objects
 		function addMarker() {
 			markers.push(new google.maps.Marker({
 				position: locations[iterator],
