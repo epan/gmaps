@@ -10,10 +10,17 @@
 			padding: 0;
 			height: 100%;
 		}
+		/* CSS rules for which login/logout buttons to show */
+		body.connected #login { display: none; }
+		body.connected #logout { display: block; }
+		body.not_connected #login { display: block; }
+		body.not_connected #logout { display: none; }
 	</style>
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
 	</script>
+
+	<!-- Initialize Google Maps -->
 	<script type="text/javascript">
 		var map;
 		function initialize() {
@@ -27,10 +34,71 @@
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+
+	</script>
+
+	<!-- Initialize FB API -->
+	<script type="text/javascript">
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '460199387350228', // App ID
+				channelUrl : '//ericpan.net/gmaps/channel.html', // Channel File
+				status     : true, // check login status
+				cookie     : true, // enable cookies to allow the server to access the session
+				xfbml      : true  // parse XFBML
+			});
+
+			FB.Event.subscribe('auth.statusChange', handleStatusChange);
+		};
+
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<script>
+		function handleStatusChange(response) {
+			document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+			if (response.authResponse) {
+				console.log(response);
+				updateUserInfo(response);
+			}
+		}
+	</script>
+
+	<!-- Login the user, ask for permission -->
+	<script type="text/javascript">
+		function loginUser() {    
+			FB.login(function(response) { }, {scope:'email, user_location, friends_location'});     
+		}
+	</script>
+
+	<!-- Show the user info at div#user-info if authenticated -->
+	<script>
+		function updateUserInfo(response) {
+			FB.api('/me', function(response) {
+				document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name + " " + response.location.name;
+			});
+		}
 	</script>
 </head>
 <body>
-	<div><p>hello</p></div>
+	<!-- Not sure WTF this is for -->
+	<!-- <div id="fb-root"></div> -->
+	
+	<!-- Show the FB user info if authenticated here -->
+	<div id="user-info"></div>
+	
+	<!-- FB Login/Logout buttons -->
+	<div id="login"><p><button onClick="loginUser();">Login</button></p></div>
+	<div id="logout"><p><button  onClick="FB.logout();">Logout</button></p></div>
+
+	<!-- Hook for Google Maps -->
 	<div id="map_canvas" style="width:100%; height:100%"></div>
 </body>
 </html>
