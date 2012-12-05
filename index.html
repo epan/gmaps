@@ -2,7 +2,6 @@
 <html>
 <head>
 	<!-- 
-		TODO: Figure out how to drop static pins.
 		TODO: Generate pin objects based on FB friend info.
 		TODO: Create proper event handlers to have pins generated the overlay added.
 		TODO: Create Info Window for the pins based on FB friend info.
@@ -11,6 +10,7 @@
 		TODO: Clearfix things probably for the header.
 		TODO: Style the login/logout buttons.
 		TODO: Set fit width for map boundaries so you can see the world on load.
+		TODO: Customize the marker to show friends' faces.
 		TODO: Make it look nice for mobile.
 	 -->
 	<title>Prototype for OCEAN and GA with Google Maps</title>
@@ -45,6 +45,7 @@
 	<script type="text/javascript">
 	// Initialize Google Maps
 		var map;
+		var geocoder;
 		var markers = [];
 		var iterator = 0;
 		
@@ -62,9 +63,23 @@
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
+			geocoder = new google.maps.Geocoder();
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+
+	// Geocodes location name into a Lat Long
+		function codeAddress() {
+			var address = "Rio de Janeiro, Rio de Janeiro";
+			geocoder.geocode( {'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					locations.push(results[0].geometry.location);
+					drop();
+				} else {
+					alert("Geocode was not successful: " + status);
+				}
+			})
+		}
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop() {
