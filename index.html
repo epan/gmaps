@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- 
+		TODO: Figure out how to drop static pins.
+		TODO: Generate pin objects based on FB friend info.
+		TODO: Create proper event handlers to have pins generated the overlay added.
+		TODO: Create Info Window for the pins based on FB friend info.
+
+		TODO: Fix the damned CSS for the header so it works right.
+		TODO: Clearfix things probably for the header.
+		TODO: Style the login/logout buttons.
+		TODO: Set fit width for map boundaries so you can see the world on load.
+		TODO: Make it look nice for mobile.
+	 -->
 	<title>Prototype for OCEAN and GA with Google Maps</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<meta charset="utf-8">
@@ -20,12 +32,11 @@
 		body.default #logout { display: none; }
 		/* My styles */
 		.login-logout { float: right; }
-		#user-info { float: left; width: 300px; }
-		#user-info span { color: #999; font-size: 12px; }
+		#user-info { float: left; width: 300px; background-origin: red; }
+		#user-info span { color: #999; }
 		#user-info img { vertical-align: top; float:left; border: 1px solid #CECECE; padding: 2px; margin-right: 5px; margin-bottom: 10px; }
-		.name-city { margin-top: 2px; }
 		.header { padding: 10px; }
-		body { font-family: Helvetica, Arial, sans-serif; }
+		body { font-family: Helvetica, Arial, sans-serif; line-height: 1.4; }
 	</style>
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
@@ -96,6 +107,7 @@
 		}
 
 	// Drop some pins
+	
 		
 	</script>
 </head>
