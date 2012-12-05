@@ -42,7 +42,7 @@
 		body.default #logout { display: none; }
 		/* My styles */
 		.login-logout { float: right; }
-		#user-info { float: left; width: 300px; background-origin: red; }
+		#user-info { float: left; width: 220px; }
 		#user-info span { color: #999; font-size: 12px; }
 		#user-info img { vertical-align: top; float:left; border: 1px solid #CECECE; padding: 2px; margin-right: 5px; margin-bottom: 10px; }
 		.header { padding: 10px; }
@@ -57,6 +57,29 @@
 		var map;
 		var geocoder;
 		var markers = [];
+		var cities = [
+			"Rio de Janeiro, Rio de Janeiro",
+			"San Francisco, California",
+			"Nova Iguaçu",
+			"New York, New York",
+			"Singapore",
+			"San Francisco, California",
+			"San Francisco, California",
+			"Dallas, Texas",
+			"Munich",
+			"London, UK",
+			"Mendoza, Argentina",
+			"San Francisco, California",
+			"Bogotá, Colombia",
+			"Beijing, China",
+			"Shanghai",
+			"Tokyo, Japan",
+			"Rio de Janeiro, Rio de Janeiro",
+			"Hong Kong",
+			"Rio de Janeiro, Rio de Janeiro",
+			"Kenya",
+			"Seville, Spain"
+		];
 		var iterator = 0;
 		
 		var locations = [
@@ -80,7 +103,7 @@
 
 	// Geocodes location name into a Lat Long
 		function codeAddress() {
-			var address = "Rio de Janeiro, Rio de Janeiro";
+			var address = ;
 			geocoder.geocode( {'address': address}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					locations.push(results[0].geometry.location);
