@@ -33,10 +33,10 @@
 		/* My styles */
 		.login-logout { float: right; }
 		#user-info { float: left; width: 300px; background-origin: red; }
-		#user-info span { color: #999; }
+		#user-info span { color: #999; font-size: 12px; }
 		#user-info img { vertical-align: top; float:left; border: 1px solid #CECECE; padding: 2px; margin-right: 5px; margin-bottom: 10px; }
 		.header { padding: 10px; }
-		body { font-family: Helvetica, Arial, sans-serif; line-height: 1.4; }
+		body { font-size: 14px; font-family: Helvetica, Arial, sans-serif; line-height: 1.2; }
 	</style>
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
@@ -46,6 +46,7 @@
 	// Initialize Google Maps
 		var map;
 		function initialize() {
+			var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 			var mapOptions = {
 				zoom: 2,
 				center: new google.maps.LatLng(15.7750, 0),
@@ -53,6 +54,13 @@
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
+
+			var marker = new google.maps.Marker({
+				position: myLatlng,
+				animation: google.maps.Animation.DROP,
+				map: map,
+				title:"Hello World!"
+			});
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
