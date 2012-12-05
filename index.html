@@ -83,9 +83,9 @@
 		var iterator = 0;
 		
 		var locations = [
-			new google.maps.LatLng(-25.363882,131.044922),
-			new google.maps.LatLng(37.7750, -122.4183),
-			new google.maps.LatLng(35.7750, -120.4183)
+			// new google.maps.LatLng(-25.363882,131.044922),
+			// new google.maps.LatLng(37.7750, -122.4183),
+			// new google.maps.LatLng(35.7750, -120.4183)
 		];
 
 		function initialize() {
@@ -102,17 +102,20 @@
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 	// Geocodes location name into a Lat Long
-		function codeAddress() {
-			var address = ;
-			geocoder.geocode( {'address': address}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					locations.push(results[0].geometry.location);
-					drop();
-				} else {
-					alert("Geocode was not successful: " + status);
-				}
-			})
-		}
+		function codeAddress(cities) {
+			var address = "";
+			for (var i = 0; i < cities.length; i++) {
+				address = cities[i];
+				geocoder.geocode( {'address': address}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						locations.push(results[0].geometry.location);
+						drop();
+					} else {
+						alert("Geocode was not successful: " + status);
+					};
+				});
+			};
+		};
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop() {
