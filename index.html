@@ -134,23 +134,23 @@
 		// appends the object with a lat long object. Each appended object is
 		// added to a new array for friend objects with LatLng.
 		function codeAddressTest(friendsWithLocation) {
-			var i;
-			var address = "";
-			var friend;
 			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
-			for (i = 0; i < friendsWithLocation.length && i < 5; i++) {
-				friend = friendsWithLocation[i];
-				address = friend.location.name;
+			for (var i = 0; i < friendsWithLocation.length && i < 5; i++) {
+				geocodeFriend(friendsWithLocation[i]);
+			};
+			// Since you are calling the function with a value, that value
+			// will not change since it is now a var/param in a closure. The
+			// interpreter won't try to look outside of the scope of this func for the
+			// value of friend. (Thanks @kmiyashiro)
+			function geocodeFriend(friend) {
+				var address = friend.location.name;
 				// Google's geocoder syntax
 				geocoder.geocode( {'address': address}, function(results, status) {
-					var results = results;
 					if (status == google.maps.GeocoderStatus.OK) {
-						// Gets the first of all possible geocoder results responses
-						// as results[0] and puts the Google LatLng object at 
-						// results[0].geometry.location and appends this to the 
-						// friend object's location node into a new key value latlong.
+						// Gets location LatLng object from Google's first result
+						// and augments the friend object with it
 						friend.location.latlong = results[0].geometry.location;
-						// Adds this newly-appended friend object with LatLng to
+						// Adds this newly-augmented friend object with LatLng to
 						// the array friendsWithLatLong.
 						friendsWithLatLong.push(friend);
 						console.log(friendsWithLatLong[i]);
@@ -165,7 +165,7 @@
 					};
 				});
 			};
-		}
+		};
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop(array) {
@@ -240,7 +240,11 @@
 	// Show the user info at div#user-info if authenticated
 		function updateUserInfo(response) {
 			FB.api('/me', function(response) {
-				document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '<br><span>' + response.location.name; + '</span></div>'
+				if (response.location.name !== null && response.location.name !== undefined) {
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '<br><span>' + response.location.name + '</span></div>';
+				} else {
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '</div>';
+				}
 			});
 		}
 
