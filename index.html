@@ -128,13 +128,14 @@
 				friend = friendsWithLocation[i];
 				address = friend.location.name;
 				geocoder.geocode( {'address': address}, function(results, status) {
+					var results = results;
 					if (status == google.maps.GeocoderStatus.OK) {
 						friend.location.latlong = results[0].geometry.location;
 						friendsWithLatLong.push(friend);
 						console.log(friendsWithLatLong[i]);
 						if (friendsWithLatLong.length === 5) {
-							// drop(friendsWithLatLong);
 							console.log(friendsWithLatLong);
+							drop(friendsWithLatLong);
 						}
 					} else {
 						alert("Geocode was not successful because " + status);
@@ -158,10 +159,23 @@
 				position: array[iterator].location.latlong,
 				map: map,
 				draggable: false,
-				animation: google.maps.Animation.DROP
+				animation: google.maps.Animation.DROP,
+				title: array[iterator].name
 			}));
 			iterator++;
-		}
+		};
+
+	// // Create and show info windows
+	// 	function showInfoWindow(marker) {
+	// 		var infowindow = new google.maps.InfoWindow({
+	// 			content: "Hello there"
+	// 		});
+	// 	};
+
+	// // Listener to open info window when click on marker
+	// 	google.maps.event.addListener(markers, 'click', function() {
+	// 		infowindow.open(map,markers);
+	// 	});
 
 	// Initialize FB API 
 		window.fbAsyncInit = function() {
@@ -246,6 +260,9 @@
 	<div class="header">
 		<!-- Show the FB user info if authenticated here -->
 		<div id="user-info"></div>
+
+		<!-- Get friends button -->
+		<button onClick="getUserFriends();">Show 5 Friends</button>
 		
 		<!-- FB Login/Logout buttons -->
 		<div class="login-logout">
