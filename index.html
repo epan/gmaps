@@ -41,12 +41,14 @@
 		body.default #login { display: block; }
 		body.default #logout { display: none; }
 		/* My styles */
+		body { font-size: 14px; font-family: Helvetica, Arial, sans-serif; line-height: 1.2;}
 		.login-logout { float: right; }
 		#user-info { float: left; width: 220px; }
 		#user-info span { color: #999; font-size: 12px; }
-		#user-info img { vertical-align: top; float:left; border: 1px solid #CECECE; padding: 2px; margin-right: 5px; margin-bottom: 10px; }
-		.header { padding: 10px; }
-		body { font-size: 14px; font-family: Helvetica, Arial, sans-serif; line-height: 1.2; }
+		#user-info img { vertical-align: top; float:left; border: 1px solid #CECECE; padding: 2px; margin-right: 5px; }
+		.header { padding: 10px; position: absolute; z-index:2; background: #fff;width: 100%;box-sizing:border-box; height: 80px;}
+		#map-canvas { width:100%; height:100%; padding-top: 100px;}
+		.name-city { display: inline-block; }
 	</style>
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
@@ -84,6 +86,8 @@
 			// new google.maps.LatLng(35.7750, -120.4183)
 		];
 
+		var friendsWithLatLong = [];
+
 		function initialize() {
 			var mapOptions = {
 				zoom: 2,
@@ -113,21 +117,45 @@
 					};
 				});
 			};
-		};
+		}
+
+	// Test function to append lat-long to FB friend object
+		function codeAddressTest(friendsWithLocation) {
+			var i;
+			var address = "";
+			var friend;
+			for (i = 0; i < friendsWithLocation.length && i < 5; i++) {
+				friend = friendsWithLocation[i];
+				address = friend.location.name;
+				geocoder.geocode( {'address': address}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						friend.location.latlong = results[0].geometry.location;
+						friendsWithLatLong.push(friend);
+						console.log(friendsWithLatLong[i]);
+						if (friendsWithLatLong.length === 5) {
+							// drop(friendsWithLatLong);
+							console.log(friendsWithLatLong);
+						}
+					} else {
+						alert("Geocode was not successful because " + status);
+					};
+				});
+			};
+		}
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop(array) {
-			for (var i = 0; i < locations.length; i++) {
+			for (var i = 0; i < array.length; i++) {
 				setTimeout(function() {
-					addMarker();
+					addMarker(array);
 				}, i * 200); // Sets delay between marker drops
 			};
 		}
 
 	// Creates new Marker object from a markers array of LatLng objects
-		function addMarker() {
+		function addMarker(array) {
 			markers.push(new google.maps.Marker({
-				position: locations[iterator],
+				position: array[iterator].location.latlong,
 				map: map,
 				draggable: false,
 				animation: google.maps.Animation.DROP
@@ -175,17 +203,39 @@
 	// Show the user info at div#user-info if authenticated
 		function updateUserInfo(response) {
 			FB.api('/me', function(response) {
-				document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture"><div class="name-city">' + response.name + '<br><span>' + response.location.name; + '</span></div>'
+				document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '<br><span>' + response.location.name; + '</span></div>'
 			});
 		}
 
+	var friendsWithLocation = [];
 	// Get friends' info (name, picture, location)
 		function getUserFriends() {
 
-		}
+			FB.api("/me/friends&fields=name,picture,location", function(response) {
+				// Confirms: Friends request responded
+				console.log("Got friends: ", response);
+				
+				if (!response.error) {
+					var friends = response.data;
 
-	// Drop some pins
-	
+					for (i = 0; i < friends.length; i++) {
+						var friend = friends[i];
+
+						// Check if friend has a location set
+						if (friend.location !== undefined && 
+							friend.location !== null && 
+							friend.location.name !== null &&
+							friend.location.name !== undefined) {
+							// console.log(friend.name + " " + friend.location.name);
+							friendsWithLocation.push(friend);
+						}
+						if (i === friends.length - 1) {
+							codeAddressTest(friendsWithLocation);
+						}
+					}
+				}
+			})
+		}
 		
 	</script>
 </head>
@@ -203,8 +253,7 @@
 			<div id="logout"><button  onClick="FB.logout();">Logout</button></div>
 		</div>
 	</div><!-- .header -->
-
 	<!-- Hook for Google Maps -->
-	<div id="map_canvas" style="width:100%; height:100%"></div>
+	<div id="map_canvas"></div>
 </body>
 </html>
