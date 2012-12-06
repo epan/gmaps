@@ -63,32 +63,8 @@
 		var map;
 		var geocoder;
 		var markers = [];
-		var cities = [
-			"Nova Iguaçu",
-			"Shanghai",
-			"New York, New York",
-			"Singapore",
-			"Munich"
-			// ,
-			// "Dallas, Texas",
-			// "London, UK",
-			// "Rio de Janeiro, Rio de Janeiro",
-			// "Mendoza, Argentina",
-			// "Bogotá, Colombia",
-			// "San Francisco, California",
-			// "Beijing, China",
-			// "Tokyo, Japan",
-			// "Hong Kong",
-			// "Kenya",
-			// "Seville, Spain"
-		];
+
 		var iterator = 0;
-		
-		var locations = [
-			// new google.maps.LatLng(-25.363882,131.044922),
-			// new google.maps.LatLng(37.7750, -122.4183),
-			// new google.maps.LatLng(35.7750, -120.4183)
-		];
 
 		var friendsWithLatLong = [];
 
@@ -105,33 +81,9 @@
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 
-	// Geocodes location name into a Lat Long
-		function codeAddress(cities) {
-			var address = "";
-			for (var i = 0; i < cities.length; i++) {
-				address = cities[i];
-				geocoder.geocode( {'address': address}, function(results, status) {
-					if (status == google.maps.GeocoderStatus.OK) {
-						locations.push(results[0].geometry.location);
-						if (locations.length === cities.length) {
-							drop(locations);	
-						}
-					} else {
-						alert("Geocode was not successful because " + status);
-					};
-				});
-			};
-		}
-
-	// Test function to append lat-long to FB friend object
-		// Receives an array of FB friend objects verified to have a location
-		// and location.name that is !null && !undefined. These friend objects
-		// have a string for the location name "San Francisco, California" but
-		// no lat long info needed to make a pin so this function takes each
-		// friend object with location, geocodes the location string, and 
-		// appends the object with a lat long object. Each appended object is
-		// added to a new array for friend objects with LatLng.
-		function codeAddressTest(friendsWithLocation) {
+	// Takes FB friend object and augments it with a LatLng object returned 
+	// by Google geocoding
+		function codeAddress(friendsWithLocation) {
 			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
 			for (var i = 0; i < friendsWithLocation.length && i < 5; i++) {
 				geocodeFriend(friendsWithLocation[i]);
@@ -269,7 +221,7 @@
 							friendsWithLocation.push(friend);
 						}
 						if (i === friends.length - 1) {
-							codeAddressTest(friendsWithLocation);
+							codeAddress(friendsWithLocation);
 						}
 					}
 				}
