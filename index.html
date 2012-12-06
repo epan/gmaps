@@ -58,27 +58,23 @@
 		var geocoder;
 		var markers = [];
 		var cities = [
-			"Rio de Janeiro, Rio de Janeiro",
-			"San Francisco, California",
 			"Nova Iguaçu",
+			"Shanghai",
 			"New York, New York",
 			"Singapore",
-			"San Francisco, California",
-			"San Francisco, California",
-			"Dallas, Texas",
-			"Munich",
-			"London, UK",
-			"Mendoza, Argentina",
-			"San Francisco, California",
-			"Bogotá, Colombia",
-			"Beijing, China",
-			"Shanghai",
-			"Tokyo, Japan",
-			"Rio de Janeiro, Rio de Janeiro",
-			"Hong Kong",
-			"Rio de Janeiro, Rio de Janeiro",
-			"Kenya",
-			"Seville, Spain"
+			"Munich"
+			// ,
+			// "Dallas, Texas",
+			// "London, UK",
+			// "Rio de Janeiro, Rio de Janeiro",
+			// "Mendoza, Argentina",
+			// "Bogotá, Colombia",
+			// "San Francisco, California",
+			// "Beijing, China",
+			// "Tokyo, Japan",
+			// "Hong Kong",
+			// "Kenya",
+			// "Seville, Spain"
 		];
 		var iterator = 0;
 		
@@ -109,16 +105,18 @@
 				geocoder.geocode( {'address': address}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						locations.push(results[0].geometry.location);
-						drop();
+						if (locations.length === cities.length) {
+							drop(locations);	
+						}
 					} else {
-						alert("Geocode was not successful: " + status);
+						alert("Geocode was not successful because " + status);
 					};
 				});
 			};
 		};
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
-		function drop() {
+		function drop(array) {
 			for (var i = 0; i < locations.length; i++) {
 				setTimeout(function() {
 					addMarker();
