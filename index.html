@@ -49,6 +49,7 @@
 		.header { padding: 10px; position: absolute; z-index:2; background: #fff;width: 100%;box-sizing:border-box; height: 80px;}
 		#map-canvas { width:100%; height:100%; padding-top: 100px;}
 		.name-city { display: inline-block; }
+		#go {background-color: orange;}
 	</style>
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
@@ -120,19 +121,36 @@
 		}
 
 	// Test function to append lat-long to FB friend object
+		// Receives an array of FB friend objects verified to have a location
+		// and location.name that is !null && !undefined. These friend objects
+		// have a string for the location name "San Francisco, California" but
+		// no lat long info needed to make a pin so this function takes each
+		// friend object with location, geocodes the location string, and 
+		// appends the object with a lat long object. Each appended object is
+		// added to a new array for friend objects with LatLng.
 		function codeAddressTest(friendsWithLocation) {
 			var i;
 			var address = "";
 			var friend;
+			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
 			for (i = 0; i < friendsWithLocation.length && i < 5; i++) {
 				friend = friendsWithLocation[i];
 				address = friend.location.name;
+				// Google's geocoder syntax
 				geocoder.geocode( {'address': address}, function(results, status) {
 					var results = results;
 					if (status == google.maps.GeocoderStatus.OK) {
+						// Gets the first of all possible geocoder results responses
+						// as results[0] and puts the Google LatLng object at 
+						// results[0].geometry.location and appends this to the 
+						// friend object's location node into a new key value latlong.
 						friend.location.latlong = results[0].geometry.location;
+						// Adds this newly-appended friend object with LatLng to
+						// the array friendsWithLatLong.
 						friendsWithLatLong.push(friend);
 						console.log(friendsWithLatLong[i]);
+						// Determines that it is the last loop and drops markers
+						// for each friend object now in friendsWithLatLong.
 						if (friendsWithLatLong.length === 5) {
 							console.log(friendsWithLatLong);
 							drop(friendsWithLatLong);
@@ -262,7 +280,7 @@
 		<div id="user-info"></div>
 
 		<!-- Get friends button -->
-		<button onClick="getUserFriends();">Show 5 Friends</button>
+		<button onClick="getUserFriends();" id="go">Show 5 Friends</button>
 		
 		<!-- FB Login/Logout buttons -->
 		<div class="login-logout">
