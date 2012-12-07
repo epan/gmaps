@@ -31,15 +31,18 @@
 	</script>
 
 	<script type="text/javascript">
-	// Initialize Google Maps
 		var map;
+		var infowindow;
 		var geocoder;
 		var markers = [];
 
 		var iterator = 0;
-
+		var friendsWithLocation = [];
 		var friendsWithLatLong = [];
 
+		var stockholm = new google.maps.LatLng(59.32522, 18.07002);
+
+	// Initialize Google Maps
 		function initialize() {
 			var mapOptions = {
 				zoom: 2,
@@ -49,6 +52,27 @@
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
 			geocoder = new google.maps.Geocoder();
+			infowindow = new google.maps.InfoWindow({
+				content: 'Hello world'
+			});
+
+			// Adds stockholm marker
+			marker = new google.maps.Marker({
+				map:map,
+				draggable:false,
+				animation: google.maps.Animation.DROP,
+				position: stockholm
+			});
+			google.maps.event.addListener(marker, 'click', toggleBounce);
+		}
+
+	// Toggles marker bounce animation
+		function toggleBounce() {
+			if (marker.getAnimation() != null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
@@ -108,19 +132,19 @@
 				title: array[iterator].name
 			}));
 			iterator++;
+			if (array.length === markers.length) {
+				addInfoWindowListener(markers);
+			}
 		};
-
-	// // Create and show info windows
-	// 	function showInfoWindow(marker) {
-	// 		var infowindow = new google.maps.InfoWindow({
-	// 			content: "Hello there"
-	// 		});
-	// 	};
-
-	// // Listener to open info window when click on marker
-	// 	google.maps.event.addListener(markers, 'click', function() {
-	// 		infowindow.open(map,markers);
-	// 	});
+	// Event listener for marker clicks opening and setting content
+		function addInfoWindowListener(param) {
+			for (var i = 0; i < param.length; i++) {
+				google.maps.event.addListener(param[i], 'click', function() {
+					infowindow.content = param[i].title;
+					infowindow.open(map, param[i]);
+				});
+			}
+		}
 
 	// Initialize FB API 
 		window.fbAsyncInit = function() {
@@ -170,8 +194,7 @@
 			});
 		}
 
-	var friendsWithLocation = [];
-	// Get friends' info (name, picture, location)
+	// Get friends' info (name, picture, location) then filters out ones with location
 		function getUserFriends() {
 
 			FB.api("/me/friends&fields=name,picture,location", function(response) {
