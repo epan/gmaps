@@ -40,7 +40,7 @@
 		var friendsWithLocation = [];
 		var friendsWithLatLong = [];
 
-		var stockholm = new google.maps.LatLng(59.32522, 18.07002);
+		// var stockholm = new google.maps.LatLng(59.32522, 18.07002);
 
 	// Initialize Google Maps
 		function initialize() {
@@ -56,14 +56,14 @@
 				content: 'Hello world'
 			});
 
-			// Adds stockholm marker
-			marker = new google.maps.Marker({
-				map:map,
-				draggable:false,
-				animation: google.maps.Animation.DROP,
-				position: stockholm
-			});
-			google.maps.event.addListener(marker, 'click', toggleBounce);
+			// // Adds stockholm marker
+			// marker = new google.maps.Marker({
+			// 	map:map,
+			// 	draggable:false,
+			// 	animation: google.maps.Animation.DROP,
+			// 	position: stockholm
+			// });
+			// google.maps.event.addListener(marker, 'click', toggleBounce);
 		}
 
 	// Toggles marker bounce animation
@@ -132,16 +132,16 @@
 				title: array[iterator].name
 			}));
 			iterator++;
-			if (array.length === markers.length) {
+			if (iterator === array.length) {
 				addInfoWindowListener(markers);
-			}
+			};
 		};
 	// Event listener for marker clicks opening and setting content
-		function addInfoWindowListener(param) {
-			for (var i = 0; i < param.length; i++) {
-				google.maps.event.addListener(param[i], 'click', function() {
-					infowindow.content = param[i].title;
-					infowindow.open(map, param[i]);
+		function addInfoWindowListener(markers) {
+			for (var i = 0; i < markers.length; i++) {
+				google.maps.event.addListener(markers[i], 'click', function() {
+					infowindow.content = this.title;
+					infowindow.open(map, this);
 				});
 			}
 		}
