@@ -3,13 +3,13 @@
 <head>
 	<!-- 
 		BUGS
-		TODO: Doesn't seem to work in incognito mode. Have to press 
-		"Show 5 Friends" twice. And the info window doesn't load.
+		TODO: Doesn't seem to work in incognito mode. Have to press "Show 5 Friends" twice. And the info window doesn't load.
 
 		P0
-		TODO: Deal with multi-person at same location.
-		
+		TODO: Set limits for the zoom and bounds.
+
 		P1
+		TODO: Deal with multi-person at same location.
 		TODO: Make a way for user to contact a friend (FB, email?).
 		TODO: Make a way for user to book a flight to this place.
 		TODO: Make the user image the login/logout info (right-aligned?).
@@ -120,7 +120,9 @@
 				map: map,
 				draggable: false,
 				animation: google.maps.Animation.DROP,
-				title: array[iterator].name
+				title: array[iterator].name,
+				city: array[iterator].location.name,
+				photo: '<img src="https://graph.facebook.com/' + array[iterator].id + '/picture" width="56px" height="56px">'
 			}));
 			iterator++;
 			if (iterator === array.length) {
@@ -131,7 +133,7 @@
 		function addInfoWindowListener(markers) {
 			for (var i = 0; i < markers.length; i++) {
 				google.maps.event.addListener(markers[i], 'click', function() {
-					infowindow.content = this.title;
+					infowindow.content = '<div id="user-info">' + this.photo + '<div class="name-city">' + this.title + '<br><span>' + this.city; + '</span></div></div>'
 					infowindow.open(map, this);
 				});
 			}
