@@ -3,8 +3,6 @@
 <head>
 	<!-- 
 		P0
-		TODO: Create Info Window for the pins based on FB friend info.
-		TODO: Fix header overlapping the map problem.
 		TODO: Deal with multi-person at same location.
 		
 		P1
@@ -29,7 +27,6 @@
 	<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkp21zwGVCj-e4gjw-lmG6aNQ_WwCgZec&sensor=false">
 	</script>
-
 	<script type="text/javascript">
 		var map;
 		var infowindow;
@@ -44,7 +41,7 @@
 		function initialize() {
 			var mapOptions = {
 				zoom: 2,
-				center: new google.maps.LatLng(15.7750, 0),
+				center: new google.maps.LatLng(30, 10),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -241,6 +238,6 @@
 		</div>
 	</div><!-- .header -->
 	<!-- Hook for Google Maps -->
-	<div id="map_canvas"></div>
+	<div id="map_canvas" style="position: absolute; top: 80px; bottom:0; width: 100%; height: auto; margin: 0; padding: 0;"></div>
 </body>
 </html>
