@@ -88,7 +88,7 @@
 						// Adds this newly-augmented friend object with LatLng to
 						// the array friendsWithLatLong.
 						friendsWithLatLong.push(friend);
-						console.log(friendsWithLatLong[i]);
+						// console.log(friendsWithLatLong[i]);
 						// Determines that it is the last loop and drops markers
 						// for each friend object now in friendsWithLatLong.
 						if (friendsWithLatLong.length === 5) {
@@ -217,6 +217,14 @@
 <body class="default">
 	<!-- FB needs this for some reason -->
 	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=460199387350228";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 	<div class="header">
 		<!-- Show the FB user info if authenticated here -->
@@ -227,7 +235,8 @@
 		
 		<!-- FB Login/Logout buttons -->
 		<div class="login-logout">
-			<div id="login"><button onClick="loginUser();">Login</button></div>
+			<!-- <div id="login"><button onClick="loginUser();">Login</button></div> -->
+			<div id="login" class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1"></div>
 			<div id="logout"><button  onClick="FB.logout();">Logout</button></div>
 		</div>
 	</div><!-- .header -->
