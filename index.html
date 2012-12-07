@@ -40,8 +40,6 @@
 		var friendsWithLocation = [];
 		var friendsWithLatLong = [];
 
-		// var stockholm = new google.maps.LatLng(59.32522, 18.07002);
-
 	// Initialize Google Maps
 		function initialize() {
 			var mapOptions = {
@@ -55,15 +53,6 @@
 			infowindow = new google.maps.InfoWindow({
 				content: 'Hello world'
 			});
-
-			// // Adds stockholm marker
-			// marker = new google.maps.Marker({
-			// 	map:map,
-			// 	draggable:false,
-			// 	animation: google.maps.Animation.DROP,
-			// 	position: stockholm
-			// });
-			// google.maps.event.addListener(marker, 'click', toggleBounce);
 		}
 
 	// Toggles marker bounce animation
