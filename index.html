@@ -72,7 +72,7 @@
 		function codeAddress(friendsWithLocation) {
 			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
 			for (var i = 0; i < friendsWithLocation.length && i < 5; i++) {
-				var random = Math.floor(Math.random()*(friendsWithLocation.length+1));
+				var random = Math.floor(Math.random()*(friendsWithLocation.length));
 				geocodeFriend(friendsWithLocation[random]);
 			};
 			// Since you are calling the function with a value, that value
@@ -122,7 +122,7 @@
 				animation: google.maps.Animation.DROP,
 				title: array[iterator].name,
 				city: array[iterator].location.name,
-				photo: '<img src="https://graph.facebook.com/' + array[iterator].id + '/picture" width="56px" height="56px">'
+				photo: '<img src="https://graph.facebook.com/' + array[iterator].id + '/picture" width="56px" height="56px" alt="profile picture">'
 			}));
 			iterator++;
 			if (iterator === array.length) {
@@ -180,9 +180,9 @@
 		function updateUserInfo(response) {
 			FB.api('/me', function(response) {
 				if (response.location.name !== null && response.location.name !== undefined) {
-					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '<br><span>' + response.location.name + '</span></div>';
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px" alt="profile picture"><div class="name-city">' + response.name + '<br><span>' + response.location.name + '</span></div>';
 				} else {
-					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px"><div class="name-city">' + response.name + '</div>';
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px" alt="profile picture"><div class="name-city">' + response.name + '</div>';
 				}
 			});
 		}
