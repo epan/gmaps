@@ -24,10 +24,10 @@
 				zoom: 2,
 				center: new google.maps.LatLng(30, 10),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				minZoom: 2,
-				maxZoom: 16,
+				// maxZoom: 16,
 				scrollwheel: false,
-				panControl: false
+				panControl: false,
+				streetViewControl: false
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
