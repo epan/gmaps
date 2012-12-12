@@ -27,7 +27,8 @@
 				// maxZoom: 16,
 				scrollwheel: false,
 				panControl: false,
-				streetViewControl: false
+				streetViewControl: false,
+				mapTypeControl: false
 			};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
 			mapOptions);
@@ -103,7 +104,8 @@
 				animation: google.maps.Animation.DROP,
 				title: array[iterator].name,
 				city: array[iterator].location.name,
-				photo: '<img src="https://graph.facebook.com/' + array[iterator].id + '/picture" width="56px" height="56px" alt="profile picture">'
+				photo: '<img src="https://graph.facebook.com/' + array[iterator].id + '/picture" width="56px" height="56px" alt="profile picture">',
+				fbpage: '"http://www.facebook.com/' + array[iterator].id + '"'
 			}));
 			iterator++;
 			if (iterator === array.length) {
@@ -114,7 +116,7 @@
 		function addInfoWindowListener(markers) {
 			for (var i = 0; i < markers.length; i++) {
 				google.maps.event.addListener(markers[i], 'click', function() {
-					infowindow.content = '<div id="user-info">' + this.photo + '<div class="name-city">' + this.title + '<br><span>' + this.city; + '</span></div></div>'
+					infowindow.content = '<a href=' + this.fbpage + ' target="_blank"><div id="user-info">' + this.photo + '<div class="name-city">' + this.title + '</a><br><span>' + this.city; + '</span></div></div>'
 					infowindow.open(map, this);
 				});
 			}

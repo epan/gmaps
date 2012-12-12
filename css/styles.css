@@ -55,3 +55,10 @@ body.default #go { display: none; }
 	background-color: rgb(255,130,119); 
 	border-color: rgb(157,62,56);
 }
+a {
+	color: #1568A3;
+	text-decoration: none;
+}
+a:hover {
+	color: #00B3D7;
+}
