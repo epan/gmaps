@@ -1,29 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- 
-		BUGS
-		TODO: Doesn't seem to work in incognito mode. Have to press "Show 5 Friends" twice. And the info window doesn't load.
-
-		P0
-		TODO: Set limits for the zoom and bounds.
-
-		P1
-		TODO: Deal with multi-person at same location.
-		TODO: Make a way for user to contact a friend (FB, email?).
-		TODO: Make a way for user to book a flight to this place.
-		TODO: Make the user image the login/logout info (right-aligned?).
-		TODO: Customize the marker/info window to show friends' faces.
-		TODO: Set fit width for map boundaries so you can see the world on load.
-		TODO: Hide pins when user logs out.
-
-		P2
-		TODO: Show flight prices for the coming weekend automatically per city.
-		TODO: Drop the pins in a nice order, like left to right.
-		TODO: Make it look nice for mobile.
-		TODO: Randomize the 5 friends shown each time.
-		TODO: Cache returned strings and check the cache before geocoding.
-	 -->
 	<title>Prototype for OCEAN and GA with Google Maps</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<meta charset="utf-8">
@@ -72,7 +49,7 @@
 		function codeAddress(friendsWithLocation) {
 			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
 			for (var i = 0; i < friendsWithLocation.length && i < 5; i++) {
-				var random = Math.floor(Math.random()*(friendsWithLocation.length+1));
+				var random = Math.floor(Math.random()*(friendsWithLocation.length));
 				geocodeFriend(friendsWithLocation[random]);
 			};
 			// Since you are calling the function with a value, that value
@@ -190,7 +167,7 @@
 	// Get friends' info (name, picture, location) then filters out ones with location
 		function getUserFriends() {
 
-			FB.api("/me/friends&fields=name,picture,location", function(response) {
+			FB.api("/me/friends?fields=name,picture,location", function(response) {
 				// Confirms: Friends request responded
 				console.log("Got friends: ", response);
 				
@@ -218,17 +195,40 @@
 		
 	</script>
 </head>
+	<!-- 
+		BUGS
+		TODO: Doesn't seem to work in incognito mode. Have to press "Show 5 Friends" twice. And the info window doesn't load.
+
+		P0
+		TODO: Set limits for the zoom and bounds.
+
+		P1
+		TODO: Deal with multi-person at same location.
+		TODO: Make a way for user to contact a friend (FB, email?).
+		TODO: Make a way for user to book a flight to this place.
+		TODO: Make the user image the login/logout info (right-aligned?).
+		TODO: Customize the marker/info window to show friends' faces.
+		TODO: Set fit width for map boundaries so you can see the world on load.
+		TODO: Hide pins when user logs out.
+
+		P2
+		TODO: Show flight prices for the coming weekend automatically per city.
+		TODO: Drop the pins in a nice order, like left to right.
+		TODO: Make it look nice for mobile.
+		TODO: Randomize the 5 friends shown each time.
+		TODO: Cache returned strings and check the cache before geocoding.
+	 -->
 <body class="default">
-	<!-- FB needs this for some reason -->
+	<!-- FB needs this -->
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
+	<!-- <script>(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) return;
 		js = d.createElement(s); js.id = id;
 		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=460199387350228";
 		fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
-	</script>
+	</script> -->
 
 	<div class="header">
 		<!-- Show the FB user info if authenticated here -->
@@ -239,8 +239,8 @@
 		
 		<!-- FB Login/Logout buttons -->
 		<div class="login-logout">
-			<!-- <div id="login"><button onClick="loginUser();">Login</button></div> -->
-			<div id="login" class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1"></div>
+			<div id="login"><button onClick="loginUser();">Login</button></div>
+			<!-- <div id="login" class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1" data-scope="email, user_location, friends_location"></div>-->
 			<div id="logout"><button  onClick="FB.logout();">Logout</button></div>
 		</div>
 	</div><!-- .header -->
