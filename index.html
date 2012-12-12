@@ -157,9 +157,9 @@
 		function updateUserInfo(response) {
 			FB.api('/me', function(response) {
 				if (response.location.name !== null && response.location.name !== undefined) {
-					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px" alt="profile picture"><div class="name-city">' + response.name + '<br><span>' + response.location.name + '</span></div>';
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="28px" height="28px" alt="profile picture"><div class="name-city">' + response.name + '<br><span>' + response.location.name + '</span></div>';
 				} else {
-					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="56px" height="56px" alt="profile picture"><div class="name-city">' + response.name + '</div>';
+					document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture" width="28px" height="28px" alt="profile picture"><div class="name-city">' + response.name + '</div>';
 				}
 			});
 		}
@@ -245,6 +245,6 @@
 		</div>
 	</div><!-- .header -->
 	<!-- Hook for Google Maps -->
-	<div id="map_canvas" style="position: absolute; top: 80px; bottom:0; width: 100%; height: auto; margin: 0; padding: 0;"></div>
+	<div id="map_canvas" style="position: absolute; top: 60px; bottom:0; width: 100%; height: auto; margin: 0; padding: 0;"></div>
 </body>
 </html>
