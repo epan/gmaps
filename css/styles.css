@@ -20,6 +20,15 @@ body.default #logout { display: none; }
 body.default #go { display: none; }
 
 /* General Styles */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
 .header {
 	padding: 10px;
 	z-index:2; 
@@ -30,10 +39,17 @@ body.default #go { display: none; }
 	border-bottom: solid 1px rgba(0, 0, 0, 0.3);
 }
 .login-logout { 
-	float: right; 
+	position: absolute;
+	right: 10px;
+	top: 20px; 
+	display: inline-block;
 }
 	#login {
 		background-color: green;
+		display: inline-block;
+	}
+	#logout {
+		display: inline-block;
 	}
 #user-info {
 	float: left; 

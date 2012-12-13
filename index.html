@@ -11,17 +11,19 @@
 	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="js/oms.min.js"></script>
+	<script src="js/script.js"></script>
 	<script type="text/javascript">
-		var map;
-		var infowindow;
-		var geocoder;
-		var markers = [];
+		var map; // For Google map object
+		var infowindow; // For Google infowindow object
+		var geocoder; // For Google geocoder object
+		var markers = []; // Stores Google marker objects
 
 		var iterator = 0;
-		var friendsWithLocation = [];
-		var friendsWithLatLong = [];
-		var mc;
+		var friendsWithLocation = []; // Stores friends with location set
+		var friendsWithLatLong = []; // Stores geocoded frriend locations
 
+		var mc; // var for MarkerClusterer object
+		var oms; // var for OverlappingMarkerSpiderfier
 
 	// Initialize Google Maps
 		function initialize() {
@@ -41,6 +43,7 @@
 			infowindow = new google.maps.InfoWindow({
 				content: 'Hello world'
 			});
+			oms = new OverlappingMarkerSpiderfier(map);
 		}
 
 	// Toggles marker bounce animation
@@ -256,10 +259,10 @@
 		<div id="user-info"></div>
 
 		<!-- Get friends button -->
-		<button onClick="getUserFriends();" id="go">Show 5 Friends</button>
+		<button onClick="getUserFriends();" id="go" class="clearfix">Show 5 Friends</button><div class="refresh-me"></div>
 		
 		<!-- FB Login/Logout buttons -->
-		<div class="login-logout">
+		<div class="login-logout" class="clearfix">
 			<div id="login"><button onClick="loginUser();">Login to get started</button></div>
 			<!-- <div id="login" class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1" data-scope="email, user_location, friends_location"></div>-->
 			<div id="logout"><button  onClick="FB.logout();">Logout</button></div>
