@@ -67,8 +67,8 @@
 	// by Google geocoding
 		function codeAddress(friendsWithLocation) {
 			// Limits to 5 loops right now to avoid QUERY_OVER_LIMIT
-			for (var i = 0; i < friendsWithLocation.length && i < 5; i++) {
-				var random = Math.floor(Math.random()*(friendsWithLocation.length));
+			for (var i = 0, l = friendsWithLocation.length; i < l && i < 5; i++) {
+				var random = Math.floor(Math.random()*(l));
 				geocodeFriend(friendsWithLocation[random]);
 			};
 			// Since you are calling the function with a value, that value
@@ -102,7 +102,7 @@
 
 	// Drops the markers by calling addMarker on the array of LatLng objects
 		function drop(array) {
-			for (var i = 0; i < array.length; i++) {
+			for (var i = 0, l = array.length; i < l; i++) {
 				setTimeout(function() {
 					addMarker(array);
 				}, i * 200); // Sets delay between marker drops
@@ -128,7 +128,7 @@
 		};
 	// Event listener for marker clicks opening and setting content
 		function addInfoWindowListener(markers) {
-			for (var i = 0; i < markers.length; i++) {
+			for (var i = 0, l = markers.length; i < l; i++) {
 				google.maps.event.addListener(markers[i], 'click', function() {
 					infowindow.content = '<a href=' + this.fbpage + ' target="_blank"><div id="user-info">' + this.photo + '<div class="name-city">' + this.title + '</a><br><span>' + this.city; + '</span></div></div>'
 					infowindow.open(map, this);
@@ -202,7 +202,7 @@
 				if (!response.error) {
 					var friends = response.data;
 
-					for (i = 0; i < friends.length; i++) {
+					for (i = 0, l = friends.length; i < l; i++) {
 						var friend = friends[i];
 
 						// Check if friend has a location set
@@ -233,6 +233,7 @@
 		P0
 		TODO: Use Spidering on pins.
 		TODO: Set limits for the zoom and bounds.
+		TODO: Use hasOwnProperty to check for existence of properties in objects.
 
 		P1
 		TODO: Deal with multi-person at same location.
