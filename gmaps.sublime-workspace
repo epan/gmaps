@@ -1,0 +1,746 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"required",
+				"requiredFilledIn"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"head",
+				"header	Tag"
+			],
+			[
+				"latit",
+				"latitudeArray"
+			],
+			[
+				"longitud",
+				"longitudeArray"
+			],
+			[
+				"locationID",
+				"locationIdArray"
+			],
+			[
+				"generate",
+				"generateMap"
+			],
+			[
+				"if",
+				"if	if"
+			],
+			[
+				"latitude",
+				"latitude"
+			],
+			[
+				"longitu",
+				"longitudeArray"
+			],
+			[
+				"locationsArr",
+				"locationsArray2"
+			],
+			[
+				"getuser",
+				"getUserFriendsLocation"
+			],
+			[
+				"friendsWith",
+				"friendsWithoutLocation"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"b",
+				"background-size"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"background-i",
+				"background-image"
+			],
+			[
+				"test",
+				"testArray"
+			],
+			[
+				"sum",
+				"sumArray"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"num",
+				"num1"
+			],
+			[
+				"retur",
+				"return"
+			],
+			[
+				"fun",
+				"fun	Function"
+			],
+			[
+				"mult",
+				"multiplyIt"
+			],
+			[
+				"retu",
+				"return"
+			],
+			[
+				"uniqe",
+				"uniques"
+			],
+			[
+				"pa",
+				"passenger"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"number",
+				"numbers"
+			],
+			[
+				"ne",
+				"nextNum"
+			],
+			[
+				"legal",
+				"legalMinimumSpeed"
+			],
+			[
+				"lega",
+				"legalMaximumSpeed"
+			],
+			[
+				"driver",
+				"driverSpeed"
+			],
+			[
+				"day",
+				"days"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"box",
+				"box-footer"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"blo",
+				"inline-block"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"hie",
+				"height	zen:css_properties"
+			],
+			[
+				"repea",
+				"repeat-x"
+			],
+			[
+				"rg",
+				"rgb()"
+			],
+			[
+				"Hel",
+				"Arial, Helvetica, sans-serif"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"right",
+				"right-column"
+			],
+			[
+				"rgb",
+				"rgba()"
+			],
+			[
+				"i",
+				"inside"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"lei",
+				"line-height"
+			],
+			[
+				"get",
+				"getGreeting"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"bott",
+				"margin-bottom"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"coin",
+				"coinsSoFar"
+			],
+			[
+				"how",
+				"howMuchMoney"
+			],
+			[
+				"amount",
+				"amountOfMoney"
+			],
+			[
+				"amoun",
+				"amountOfMoney"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"sftp up",
+				"SFTP: Setup Server…"
+			],
+			[
+				"sftp",
+				"Preferences: SFTP Settings"
+			],
+			[
+				"ftp",
+				"SFTP: Edit Server…"
+			],
+			[
+				"setsyn html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ftp pa",
+				"Set Syntax: SFTP Output Panel"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"jslin",
+				"JSHint: Linter"
+			],
+			[
+				"jsli",
+				"JSHint: Linter"
+			],
+			[
+				"setsyjso",
+				"Set Syntax: JSON"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"setsynjava",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remote",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"sft",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"bro",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"brow",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"brows",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"chara",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"uploa",
+				"SFTP: Upload Folder"
+			],
+			[
+				"sftp ca",
+				"SFTP: Cancel Upload"
+			],
+			[
+				"sftpsho",
+				"SFTP: Show Panel"
+			],
+			[
+				"lore",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"sftp ke",
+				"Preferences: SFTP Key Bindings"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"enc",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"en",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"add",
+				"Package Control: Add Repository"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/grupert/GitHub/epan.github.com/treehouse.txt",
+		"/Users/grupert/GitHub/OceanRails/public/wtfmate/css/gmaps.css",
+		"/Users/grupert/GitHub/OceanRails/public/wtfmate/gmaps.html",
+		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/SFTP/SFTP.sublime-settings",
+		"/Users/grupert/Pictures/Screenshots/Screen Shot 2012-12-03 at 4.02.50 PM.png",
+		"/Users/grupert/GitHub/OceanRails/public/wtfmate/css/style.css",
+		"/Users/grupert/GitHub/OceanRails/public/wtfmate/js/script.js",
+		"/Users/grupert/GitHub/OceanRails/.git/COMMIT_EDITMSG",
+		"/Users/grupert/GitHub/oceanproto/jquery.js",
+		"/Users/grupert/GitHub/oceanproto/template.html",
+		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/grupert/GitHub/oceanproto/two.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 13 Exercises/Class 3 Exercise - Objects/index.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 13 Exercises/Class 3 Exercise - Objects/js/exercise.js",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - Loops/index.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - If Else/js/exercise.js",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - If Else/index.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - Comparison Operators/index.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - Comparison Operators/js/exercise.js",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - Condition Logic/index.html",
+		"/Users/grupert/Dropbox/__Projects/General-Assembly/FEWD/Class 12 Exercises/Class 2 Exercise - Condition Logic/js/exercise.js",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class09/CSS3-search/css/style.css",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class07/busyhands/css/backup.css",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class07/bigsquare/css/style.css",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class07/css/style.css",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class07/bigsquare/index.html",
+		"/Users/grupert/Dropbox/__Projects/deepdyve-landing/whereisthis.html",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class04/sftp-config.json",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class04/ecardly/index.html",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/class04/ecardly/css/style.css",
+		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/project1/sftp-config.json",
+		"/Users/grupert/Dropbox/__Projects/General Assembly/FEWD/project1/styles.css",
+		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/README.md",
+		"/Users/grupert/Dropbox/Tutorials/modern grid system/grid.css",
+		"/Users/grupert/Dropbox/Tutorials/modern grid system/index.html",
+		"/Users/grupert/Dropbox/_Consulting/Wheelz/Permissions Walk-Through",
+		"/Users/grupert/Dropbox/Tutorials/stringlet.html",
+		"/Users/grupert/Dropbox/Tutorials/stringlet-test.html",
+		"/Users/grupert/Dropbox/_Consulting/Trying to build a picture of what is happening in",
+		"/Users/grupert/Dropbox/_Consulting/CareAtHand/Deep dive #1: Medications",
+		"/Users/grupert/Dropbox/_Working files/virb.css",
+		"/Users/grupert/Dropbox/_old stuff/PEIXE URBANO/old work/Deal Page Redesign/Inspiration/Sign Up   myBalsamiq 2_files/settings__v1295511402368.gz.css",
+		"/Users/grupert/Dropbox/_Consulting/CareAtHand/1. Case: Patient discharged into home care"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"text",
+			" .",
+			"h3",
+			"font-si",
+			"clearfix",
+			"fb-root",
+			"location",
+			"locations",
+			"array2",
+			"generateMap()",
+			"generate",
+			"map",
+			"latitudes",
+			"longitudes",
+			"array2",
+			"array",
+			"handlesta",
+			"body",
+			"login",
+			"jquery",
+			"li",
+			"980",
+			"navbar-fixed-top",
+			"navbar-fixed",
+			"<span>",
+			"2007",
+			"&nbsp;",
+			"p",
+			"html",
+			"clear",
+			"content",
+			"clear",
+			"border",
+			"h3",
+			"#latest-card",
+			"card",
+			"section",
+			"post",
+			"quote",
+			"content",
+			"40px",
+			"ol",
+			"img",
+			"reviews",
+			"clear",
+			"list",
+			"panel",
+			".icon",
+			"li",
+			"        <li>1 cup butter, softened</li>\n        <li>1 cup white sugar</li>\n        <li>1 cup packed brown sugar</li>\n        <li>2 eggs</li>\n        <li>2 teaspoons vanilla extract</li>\n        <li>3 cups all-purpose flour</li>\n        <li>1 teaspoon baking soda</li>\n        <li>2 teaspoons hot water</li>\n        <li>1/2 teaspoon salt</li>\n        <li>2 cups semisweet chocolate chips</li>\n        <li>1 cup chopped walnuts</li>",
+			"li",
+			"font-family",
+			"h2",
+			"old-stand",
+			"font-family",
+			"old-sta",
+			"h2"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.sftp":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"js",
+				"js/script.js"
+			],
+			[
+				"css",
+				"ratchet.css"
+			],
+			[
+				"boots",
+				"css/bootstrap.css"
+			],
+			[
+				"por",
+				"portfolio.html"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"con",
+				"contact.html"
+			],
+			[
+				"index",
+				"CSS3-properties/index.html"
+			],
+			[
+				"960",
+				"css/960_12_col.css"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"read",
+				"busyhands/readme.html"
+			],
+			[
+				"sty",
+				"bigsquare/css/style.css"
+			],
+			[
+				"cs",
+				"busyhands/css/style.css"
+			],
+			[
+				"",
+				"css/style.css"
+			],
+			[
+				"style",
+				"css/style.css"
+			],
+			[
+				"disc",
+				"discography.html"
+			],
+			[
+				".css",
+				"css/normalize.css"
+			],
+			[
+				".html",
+				"about.html"
+			],
+			[
+				"ab",
+				"about.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true
+}
